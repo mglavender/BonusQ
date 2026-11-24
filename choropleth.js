@@ -68,7 +68,6 @@ const vlSpec = {
     ]
   }
 };
-};
 
 vegaEmbed('#svg-choropleth', vlSpec, { renderer: 'svg' })
   .catch(console.error);
