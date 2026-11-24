@@ -29,7 +29,8 @@ const vlSpec = {
           }
         },
         "key": "properties.name",
-        "fields": ["geometry"]
+        "fields": ["geometry"],
+        "as": ["geometry"]
       }
     }
   ],
