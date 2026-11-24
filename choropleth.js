@@ -19,7 +19,7 @@ const vlSpec = {
 
   "transform": [
     {
-      "lookup": "Country",
+      "lookup": "Country of Incident",
       "from": {
         "data": {
           "url": "https://gist.githubusercontent.com/mglavender/b3a1403a45a3b244a697619c64e74a30/raw/44cdeb87787cb9f1b96f2e6b4f916ec19e95a84c/world_countries.json",
