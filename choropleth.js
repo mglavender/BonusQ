@@ -60,7 +60,7 @@ const vlSpec = {
       }
     },
     "tooltip": [
-      {"field": "Country", "type": "nominal"},
+      {"field": "Country of Incident", "type": "nominal"},
       {"field": "Year", "type": "quantitative"},
       {"field": "Number_of_Incidents", "type": "quantitative"},
       {"field": "Average_Fine", "type": "quantitative"},
