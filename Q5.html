@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Wildlife Trafficking Data Visualization</title>
+
+  <!-- Vega & Vega-Lite libraries -->
+  <script src="../lib/vega.js"></script>
+  <script src="../lib/vega-lite.js"></script>
+  <script src="../lib/vega-embed.js"></script>
+
+  <style>
+    .vega-actions a {
+      margin-right: 5px;
+    }
+
+    #svg-choropleth {
+      width: 1200px;
+    }
+
+    #svg-choropleth .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #svg-choropleth .vega-bindings {
+      order: -1;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="svg-choropleth"></div>
+  <script src="choropleth.js"></script>
+</body>
+
+</html>
