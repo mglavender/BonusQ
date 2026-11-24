@@ -10,9 +10,9 @@ const vlSpec = {
       "type": "csv",
       "parse": {
         "Year": "number",
-        "Number of Incidents": "number",
-        "Average Fine": "number",
-        "Average Imprisonment": "number"
+        "Number_of_Incidents": "number",
+        "Average_Fine": "number",
+        "Average_Imprisonment": "number"
       }
     }
   },
@@ -50,7 +50,7 @@ const vlSpec = {
       "type": "geojson"
     },
     "color": {
-      "field": "Number of Incidents",
+      "field": "Number_of_Incidents",
       "type": "quantitative",
       "scale": {
         "scheme": "orangered"
