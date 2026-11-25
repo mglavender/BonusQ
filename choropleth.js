@@ -34,7 +34,7 @@ const vlSpec = {
           "value": 2021,
           "bind": {
             "input": "select",
-            "options":,
+            "options": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
             "name": "Select Year: "
           }
         }
