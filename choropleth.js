@@ -30,7 +30,7 @@ const vlSpec = {
     {
       "params": [
         {
-          "name": "Year",
+          "name": "Selected_Year",
           "value": 2021,
           "bind": {
             "input": "select",
