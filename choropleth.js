@@ -40,7 +40,7 @@ const vlSpec = {
         }
       ],
       "data": {
-        "url": "https://githubusercontent.com",
+        "url": "https://raw.githubusercontent.com/mglavender/BonusQ/refs/heads/main/wildlife_trafficking.csv",
         "format": {
           "type": "csv",
           "parse": {
