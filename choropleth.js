@@ -1,73 +1,109 @@
 const vlSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  // your spec goes here
   "width": 800,
   "height": 450,
-
-  "data": {
-    "url": "https://raw.githubusercontent.com/mglavender/BonusQ/main/wildlife_trafficking.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "Year": "number",
-        "Number_of_Incidents": "number",
-        "Average_Fine": "number",
-        "Average_Imprisonment": "number"
-      }
-    }
-  },
-
-  "transform": [
-    {
-      "lookup": "Country of Incident",
-      "from": {
-        "data": {
-          "url": "https://gist.githubusercontent.com/mglavender/b3a1403a45a3b244a697619c64e74a30/raw/44cdeb87787cb9f1b96f2e6b4f916ec19e95a84c/world_countries.json",
-          "format": {
-            "type": "json",
-            "property": "features"
-          }
-        },
-        "key": "properties.name",
-        "fields": ["geometry"],
-        "as": ["geometry"]
-      }
-    }
-  ],
 
   "projection": {
     "type": "equalEarth"
   },
 
-  "mark": {
-    "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 0.5
-  },
-
-  "encoding": {
-    "shape": {
-      "field": "geometry",
-      "type": "geojson"
-    },
-    "color": {
-      "field": "Number_of_Incidents",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "orangered"
+  "layer": [
+    {
+      "data": {
+        "url": "https://githubusercontent.com",
+        "format": {
+          "type": "geojson"
+        }
       },
-      "legend": {
-        "title": "Number of Incidents"
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e8e8",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "tooltip": [
+          { "field": "properties.name", "type": "nominal", "title": "Country" }
+        ]
       }
     },
-    "tooltip": [
-      {"field": "Country of Incident", "type": "nominal"},
-      {"field": "Year", "type": "quantitative"},
-      {"field": "Number_of_Incidents", "type": "quantitative"},
-      {"field": "Average_Fine", "type": "quantitative"},
-      {"field": "Average_Imprisonment", "type": "quantitative"}
-    ]
-  }
+    {
+      "params": [
+        {
+          "name": "Selected_Year",
+          "value": 2021,
+          "bind": {
+            "input": "select",
+            "options":,
+            "name": "Select Year: "
+          }
+        }
+      ],
+      "data": {
+        "url": "https://githubusercontent.com",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Year": "number",
+            "Number_of_Incidents": "number",
+            "Average_Fine": "number",
+            "Average_Imprisonment": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.Year == Selected_Year"
+        },
+        {
+          "calculate": "datum['Country of Incident'] == 'USA' ? 'United States of America' : datum['Country of Incident'] == 'England' ? 'United Kingdom' : datum['Country of Incident'] == 'Republic of Serbia' ? 'Serbia' : datum['Country of Incident']",
+          "as": "Clean_Country"
+        },
+        {
+          "lookup": "Clean_Country",
+          "from": {
+            "data": {
+              "url": "https://githubusercontent.com",
+              "format": {
+                "type": "json",
+                "property": "features"
+              }
+            },
+            "key": "properties.name"
+          },
+          "as": "geometry"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "Number_of_Incidents",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "orangered"
+          },
+          "legend": {
+            "title": "Number of Incidents"
+          }
+        },
+        "tooltip": [
+          {"field": "Country of Incident", "type": "nominal"},
+          {"field": "Year", "type": "quantitative"},
+          {"field": "Number_of_Incidents", "type": "quantitative"},
+          {"field": "Average_Fine", "type": "quantitative"},
+          {"field": "Average_Imprisonment", "type": "quantitative"}
+        ]
+      }
+    }
+  ]
 };
 
 vegaEmbed('#svg-choropleth', vlSpec, { renderer: 'svg' })
