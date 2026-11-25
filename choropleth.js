@@ -10,7 +10,7 @@ const vlSpec = {
   "layer": [
     {
       "data": {
-        "url": "https://githubusercontent.com",
+        "url": "https://raw.githubusercontent.com/mglavender/BonusQ/refs/heads/main/world_countries.json",
         "format": {
           "type": "geojson"
         }
