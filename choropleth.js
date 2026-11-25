@@ -30,7 +30,7 @@ const vlSpec = {
     {
       "params": [
         {
-          "name": "Selected_Year",
+          "name": "Year",
           "value": 2021,
           "bind": {
             "input": "select",
@@ -53,7 +53,7 @@ const vlSpec = {
       },
       "transform": [
         {
-          "filter": "datum.Year == Selected_Year"
+          "filter": "datum.Year == Year"
         },
         {
           "calculate": "datum['Country of Incident'] == 'USA' ? 'United States of America' : datum['Country of Incident'] == 'England' ? 'United Kingdom' : datum['Country of Incident'] == 'Republic of Serbia' ? 'Serbia' : datum['Country of Incident']",
